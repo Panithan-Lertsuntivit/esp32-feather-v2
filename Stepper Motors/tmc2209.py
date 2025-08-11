@@ -9,7 +9,7 @@ enable_pin = Pin(14, Pin.OUT)
 # Enable motor driver
 enable_pin.value(0)		# LOW = enabled
 
-def step_movement(steps, direction=1, delay_us=1000):
+def step_movement(steps, direction=1, delay_us=350):
     # direction=1 results in clockwise rotation
     dir_pin.value(direction)
     for _ in range(steps):
@@ -21,8 +21,8 @@ def step_movement(steps, direction=1, delay_us=1000):
 # Stepper Motor control
 while True:
     print("Forward")
-    step_movement(500, direction=1)
+    step_movement(1600, direction=1)
     sleep(1)
     print("Reverse")
-    step(500, direction=0)
+    step_movement(1600, direction=0)
     sleep(1)
